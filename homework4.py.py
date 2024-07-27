@@ -1,0 +1,7 @@
+my_script = input('Имя ')
+print('Вы хорошо потрудились, ' , my_script)
+print(('Вы хорошо потрудились, ' + my_script).upper())
+print(('Вы хорошо потрудились, ' + my_script).lower())
+print(('Вы хорошо потрудились, ' + my_script).replace(' ', ''))
+print(my_script[0])
+print(my_script[-1])
