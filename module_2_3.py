@@ -1,14 +1,14 @@
 my_list = [42, 69, 322, 13, 0, 99, -5, 9, 8, 7, -6, 5]
-my_list_positive = []
+positive = []
 index = 0
 
 while index < len(my_list):
     if my_list[index] < 0:
         break
-    my_list_positive.append(my_list[index])
+    if my_list[index] > 0:
+        positive.append(my_list[index])
     index += 1
-print(my_list_positive)
-
+print(positive)
 
 
 
