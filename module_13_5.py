@@ -5,7 +5,7 @@ from aiogram.dispatcher import FSMContext
 import asyncio
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-api = "7744039164:AAGbm0A57G4nLunRaiag87ZoXtkZVykZQzA"
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -17,8 +17,8 @@ class UserState(StatesGroup):
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
 button = KeyboardButton(text="Рассчитать")
 button2 = KeyboardButton(text="Информация")
-kb.add(button)
-kb.add(button2)
+kb.add(button, button2)
+
 
 @dp.message_handler(commands=['start'])
 async def start(message):
@@ -54,6 +54,9 @@ async def send_calories(message, state):
     await message.answer(calories)
     await state.finish()
 
+@dp.message_handler()
+async def all_message(message):
+    await message.answer('Введите команду /start, чтобы начать общение.')
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
